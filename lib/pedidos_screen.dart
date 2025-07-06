@@ -194,7 +194,7 @@ class _PedidosScreenState extends State<PedidosScreen> {
                                 if (pedidoEdit == null) {
                                   await _service.createPedido(pedido);
                                 } else {
-                                  // Aquí deberías implementar updatePedido si lo tienes
+                                  await _service.updatePedido(pedido);
                                 }
                                 Navigator.pop(ctx);
                                 _refresh();

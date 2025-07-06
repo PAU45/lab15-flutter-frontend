@@ -187,7 +187,7 @@ class _ReservaScreenState extends State<ReservaScreen> {
                                 if (reservaEdit == null) {
                                   await _service.createReserva(reserva);
                                 } else {
-                                  // Aquí podrías implementar updateReserva si lo tienes
+                                  await _service.updateReserva(reserva);
                                 }
                                 Navigator.pop(ctx);
                                 _refresh();

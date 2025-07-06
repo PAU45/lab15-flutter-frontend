@@ -33,6 +33,23 @@ class PedidoService {
     throw Exception('Error ${res.statusCode}');
   }
 
+  Future<Pedido> updatePedido(Pedido pedido) async {
+    if (pedido.id == null) throw Exception('Pedido sin id');
+    final res = await http.put(
+      Uri.parse('$_baseUrl/${pedido.id}'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Android 14; Mobile) Flutter',
+      },
+      body: jsonEncode(pedido.toJson()),
+    );
+    if (res.statusCode == 200) {
+      return Pedido.fromJson(jsonDecode(res.body));
+    }
+    throw Exception('Error ${res.statusCode}');
+  }
+
   Future<void> deletePedido(int id) async {
     final res = await http.delete(
       Uri.parse('$_baseUrl/$id'),

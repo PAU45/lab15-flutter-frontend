@@ -141,7 +141,7 @@ class _UsuarioScreenState extends State<UsuarioScreen> {
                           if (usuarioEdit == null) {
                             await _service.createUsuario(usuario);
                           } else {
-                            // Aquí podrías implementar updateUsuario si lo tienes
+                            await _service.updateUsuario(usuario);
                           }
                           Navigator.pop(ctx);
                           _refresh();
